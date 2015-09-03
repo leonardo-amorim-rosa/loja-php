@@ -1,0 +1,13 @@
+body {
+	padding: 50px;
+}
+
+.principal {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.agrupa-coluna {
+	colspan: 2;
+}
+
