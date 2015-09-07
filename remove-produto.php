@@ -1,9 +1,11 @@
 <?php
 	include("conecta.php");
 	include("banco-produtos.php");
-	
+	include("logica-usuario.php");
+
 	$produto_id = $_GET["id"];
 	removeProduto($conexao, $produto_id);
-	
-	header("Location: produto-lista.php?confirma=true");
+
+	$_SESSION["success"] = "Produto removido com sucesso.";
+	header("Location: produto-lista.php");
 	die();

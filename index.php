@@ -4,15 +4,18 @@
 
 				<h1>Bem Vindo!!!</h1>
 
-				<?php if (isset($_GET["logout"]) && $_GET["logout"] == true) { ?>
-					<p class="alert-success">Deslogado com sucesso!</p>
-				<?php }else if (isset($_GET["login"]) && $_GET["login"] == 1) { ?>
-					<p class="alert-success">Usuário logado com sucesso!</p>
-				<?php } else if (isset($_GET["login"]) && $_GET["login"] == 0) { ?>
-					<p class="alert-danger">Usuário inválido!</p>
-				<?php } else if (isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"] == true) { ?>
-						<p class="text-danger">Você não tem acesso a esta página.</p>
-				<?php } ?>
+				<?php if (isset($_SESSION["success"])) { ?>
+					<p class="alert-success"><?=$_SESSION["success"]?></p>
+				<?php
+				 	unset($_SESSION["success"]);
+					}
+				?>
+				<?php if (isset($_SESSION["danger"])) { ?>
+						<p class="text-danger"><?=$_SESSION["danger"]?></p>
+				<?php
+				 		unset($_SESSION["danger"]);
+					}
+				?>
 
 				<?php if (usuarioEstaLogado()) { ?>
 					<p class="text-success">
@@ -33,7 +36,7 @@
 								<td><input class="form-control" type="password" name="senha" ></td>
 							</tr>
 							<tr>
-								<td><button class="btn btn-primary" >Login</button></td>
+								<td><button class="btn btn-primary">Login</button></td>
 								<td></td>
 							</tr>
 						</table>

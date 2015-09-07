@@ -7,11 +7,13 @@
   $usuario = buscaUsuario($conexao, $email, $senha);
 
   if ($usuario != null) {
-    header("Location: index.php?login=1");
+    $_SESSION["success"] = "Usuário logado com sucesso.";
+    header("Location: index.php");
     logaUsuario($email);
 
   } else {
-    header("Location: index.php?login=0");
+    $_SESSION["danger"] = "Usuário ou email inválido.";
+    header("Location: index.php");
 
   }
   die();
