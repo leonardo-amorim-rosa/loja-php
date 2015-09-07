@@ -1,4 +1,6 @@
-<?php include("cabecalho.php") ?>
+<?php include("cabecalho.php");
+	include("logica-usuario.php");
+?>
 
 				<h1>Bem Vindo!!!</h1>
 
@@ -6,10 +8,12 @@
 					<p class="alert-success">Usuário logado com sucesso!</p>
 				<?php } else if (isset($_GET["login"]) && $_GET["login"] == 0) { ?>
 					<p class="alert-danger">Usuário inválido!</p>
+				<?php } else if (isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"] == true) { ?>
+						<p class="text-danger">Você não tem acesso a esta página.</p>
 				<?php } ?>
 
-				<?php if (isset($_COOKIE["usuario_logado"])) { ?>
-					<p class="text-success">Você está logado como <?= $_COOKIE["usuario_logado"] ?></p>
+				<?php if (usuarioEstaLogado()) { ?>
+					<p class="text-success">Você está logado como <?=usuarioLogado()?></p>
 
 				<?php } else { ?>
 

@@ -2,7 +2,10 @@
 	include("cabecalho.php");
 	include("conecta.php");
 	include("banco-categorias.php");
+	include("logica-usuario.php");
 
+	verificaUsuario();
+	
 	$categorias = listaCategorias($conexao);
 ?>
 

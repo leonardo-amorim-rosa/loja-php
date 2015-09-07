@@ -1,18 +1,21 @@
-<?php include("cabecalho.php") ?>
-<?php include("conecta.php") ?>
-<?php include("banco-produtos.php") ?>
+<?php include("cabecalho.php");
+	include("conecta.php");
+  include("banco-produtos.php");
+	include("logica-usuario.php");
+	include("logica-usuario.php");
 
-	<?php
-		$nome = $_POST["nome"];
-		$preco = $_POST["preco"];
-		$descricao = $_POST["descricao"];
-		$categoria_id = $_POST["categoria_id"];
-		if (isset($_POST["usado"]) && $_POST["usado"] == true) {
-			$usado = "true";
-		} else {
-			$usado = "false";
-		}
-	?>
+	verificaUsuario();
+		
+	$nome = $_POST["nome"];
+	$preco = $_POST["preco"];
+	$descricao = $_POST["descricao"];
+	$categoria_id = $_POST["categoria_id"];
+	if (isset($_POST["usado"]) && $_POST["usado"] == true) {
+		$usado = "true";
+	} else {
+		$usado = "false";
+	}
+?>
 
 	<?php	if (cadastraProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado)) {	?>
 
