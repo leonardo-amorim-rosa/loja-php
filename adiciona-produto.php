@@ -2,10 +2,9 @@
 	include("conecta.php");
   include("banco-produtos.php");
 	include("logica-usuario.php");
-	include("logica-usuario.php");
 
 	verificaUsuario();
-		
+
 	$nome = $_POST["nome"];
 	$preco = $_POST["preco"];
 	$descricao = $_POST["descricao"];

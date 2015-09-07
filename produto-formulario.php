@@ -5,7 +5,9 @@
 	include("logica-usuario.php");
 
 	verificaUsuario();
-	
+
+	$produto = array("nome" => "", "preco" => "", "descricao" => "", "categoria_id" => "1");
+	$usado = "";
 	$categorias = listaCategorias($conexao);
 ?>
 
@@ -14,36 +16,7 @@
 
 			<table class="table">
 
-				<tr>
-					<td>Nome</td>
-					<td><input class="form-control" type="text" name="nome" /></td>
-				</tr>
-
-				<tr>
-					<td>Preço</td>
-					<td><input class="form-control" type="number" name="preco" /></td>
-				</tr>
-
-				<tr>
-					<td>Categoria</td>
-					<td>
-						<select name="categoria_id" class="form-control">
-						<?php foreach ($categorias as $categoria): ?>
-							<option value="<?=$categoria['id']?>"><?=$categoria['nome']?></option>
-						<?php endforeach ?>
-					</select>
-					</td>
-				</tr>
-
-				<tr>
-					<td></td>
-					<td><input type="checkbox" name="usado" /> Usado</td>
-				</tr>
-
-				<tr>
-					<td>Descrição</td>
-					<td><textarea class="form-control" name="descricao"></textarea></td>
-				</tr>
+				<?php include("produto-formulario-base.php"); ?>
 
 				<tr>
 					<td colspan="2"><input class="btn btn-primary" type="submit" value="Cadastrar" /></td>
