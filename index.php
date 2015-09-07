@@ -4,7 +4,9 @@
 
 				<h1>Bem Vindo!!!</h1>
 
-				<?php if (isset($_GET["login"]) && $_GET["login"] == 1) { ?>
+				<?php if (isset($_GET["logout"]) && $_GET["logout"] == true) { ?>
+					<p class="alert-success">Deslogado com sucesso!</p>
+				<?php }else if (isset($_GET["login"]) && $_GET["login"] == 1) { ?>
 					<p class="alert-success">Usuário logado com sucesso!</p>
 				<?php } else if (isset($_GET["login"]) && $_GET["login"] == 0) { ?>
 					<p class="alert-danger">Usuário inválido!</p>
@@ -13,7 +15,9 @@
 				<?php } ?>
 
 				<?php if (usuarioEstaLogado()) { ?>
-					<p class="text-success">Você está logado como <?=usuarioLogado()?></p>
+					<p class="text-success">
+						Você está logado como <?=usuarioLogado()?>, <a href="logout.php">Deslogar</a>
+					</p>
 
 				<?php } else { ?>
 
