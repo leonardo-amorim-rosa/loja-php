@@ -4,17 +4,9 @@
 
 				<h1>Bem Vindo!!!</h1>
 
-				<?php if (isset($_SESSION["success"])) { ?>
-					<p class="alert-success"><?=$_SESSION["success"]?></p>
 				<?php
-				 	unset($_SESSION["success"]);
-					}
-				?>
-				<?php if (isset($_SESSION["danger"])) { ?>
-						<p class="text-danger"><?=$_SESSION["danger"]?></p>
-				<?php
-				 		unset($_SESSION["danger"]);
-					}
+					mostraAlerta("success");
+					mostraAlerta("danger");
 				?>
 
 				<?php if (usuarioEstaLogado()) { ?>
