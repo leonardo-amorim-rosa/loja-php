@@ -1,6 +1,5 @@
-<?php include("cabecalho.php");
-	include("conecta.php");
-	include("banco-produtos.php");
+<?php require_once("cabecalho.php");
+	require_once("banco-produtos.php");
 ?>
 
 <?php

@@ -1,5 +1,6 @@
 <?php
-
+		require_once("conecta.php");
+		
 		function cadastraProduto($conexao, $nome, $preco, $descricao, $categoria_id, $usado) {
 			$nome = mysqli_real_escape_string($conexao, $nome);
 			$descricao = mysqli_real_escape_string($conexao, $descricao);

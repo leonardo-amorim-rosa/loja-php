@@ -1,7 +1,6 @@
 <?php
-	include("conecta.php");
-	include("banco-produtos.php");
-	include("logica-usuario.php");
+	require_once("banco-produtos.php");
+	require_once("logica-usuario.php");
 
 	$produto_id = $_GET["id"];
 	removeProduto($conexao, $produto_id);

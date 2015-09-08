@@ -6,7 +6,7 @@
 
 <tr>
   <td>Preço</td>
-  <td><input class="form-control" type="number" name="preco" value="<?=$produto['preco']?>" /></td>
+  <td><input class="form-control" type="number" min="0" step="any" name="preco" value="<?=$produto['preco']?>" /></td>
 </tr>
 
 <tr>
