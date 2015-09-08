@@ -3,6 +3,9 @@
 	include("conecta.php");
 	include("banco-categorias.php");
   include("banco-produtos.php");
+	include("logica-usuario.php");
+
+	verificaUsuario();
 
   $id = $_GET["id"];
   $produto = buscarProdutoPorId($conexao, $id);
