@@ -12,7 +12,7 @@ $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host =  'smtp.gmail.com';//'smtp1.example.com;smtp2.example.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'leoamorimrosa@gmail.com';                 // SMTP username
-$mail->Password = 'r7a9i9d9';                           // SMTP password
+$mail->Password = '';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
@@ -29,8 +29,8 @@ $mail->addAddress('leoamorimrosa@gmail.com', 'Contato');     // Add a recipient
 $mail->isHTML(true);                                  // Set email format to HTML
 
 $mail->Subject = 'Contato';
-$mail->Body    = "{$descricao}";
-$mail->AltBody = "{$descricao}";
+$mail->Body    = "<b>Descrição: {$descricao}</b>";
+$mail->AltBody = "Descrição: {$descricao}";
 
 if(!$mail->send()) {
   echo 'Message could not be sent.';
