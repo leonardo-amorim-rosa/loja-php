@@ -12,7 +12,7 @@
 			<th>Preço com desconto(<?=$desconto?>%)</th>
 			<th>Descrição</th>
 			<th>Categoria</th>
-			<th>Usado</th>												
+			<th>Estado</th>												
 		</tr>
 		<?php
 			$produtos = listaProdutos($conexao);
