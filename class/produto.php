@@ -7,6 +7,19 @@
     public $categoria;
     public $usado;
 
+    function __construct($id, $nome, $preco=0.0, $descricao, $categoria, $usado) {
+      $this->id = $id;
+      $this->nome = $nome;
+      $this->preco = $preco;
+      $this->descricao = $descricao;
+      $this->categoria = $categoria;
+      $this->usado = $usado;
+    }
+
+    function __tostring() {
+      return "Produto: {$this->id} - {$this->nome}";
+    }
+
     public function getPreco() {
       return $this->preco;
     }

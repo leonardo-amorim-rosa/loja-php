@@ -1,8 +1,9 @@
 <?php require_once("cabecalho.php");
-	require_once("banco-produtos.php");
+	require_once("produto-dao.php");
 
 	mostraAlerta("success");
 	$desconto = 0.1;
+
 ?>
 
 <table class="table table-striped table-bordered">
@@ -11,11 +12,12 @@
 			<th>Preço</th>
 			<th>Preço com desconto(<?=$desconto?>%)</th>
 			<th>Descrição</th>
-			<th>Categoria</th>oja
+			<th>Categoria</th>
 			<th>Usado</th>
 		</tr>
 		<?php
-			$produtos = listaProdutos($conexao);
+			$dao = new ProdutoDAO($conexao);
+			$produtos = $dao->listaProdutos();
 			foreach ($produtos as $produto):
 		?>
 

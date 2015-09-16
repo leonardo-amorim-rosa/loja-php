@@ -1,8 +1,6 @@
 <?php require_once("cabecalho.php");
-	require_once("banco-produtos.php");
+	require_once("produto-dao.php");
 	require_once("logica-usuario.php");
-	require_once("class/produto.php");
-	require_once("class/categoria.php");
 
 	verificaUsuario();
 
@@ -19,17 +17,18 @@
 		$usado = "false";
 	}
 	$produto->usado = $usado;
-?>
 
-<?php	if (cadastraProduto($conexao, $produto)) {	?>
+	$produtoDAO = new ProdutoDAO($conexao);
 
-	<p class="text-success">O Produto <?= $produto->nome ?>, <?= $produto->preco ?> foi adicionado com sucesso!!!</p>
+if ($produtoDAO->cadastraProduto($produto)) {	?>
+
+	<p class="text-success">O Produto <?= $produto->nome ?>, <?= $produto->getPreco() ?> foi adicionado com sucesso!!!</p>
 
 <?php } else { ?>
 
 	<?php $msg = mysqli_error($conexao) ?>
 
-	<p class="text-danger">O Produto <?= $produto->nome ?> não foi cadastrado!!! <?= $msg ?></p>
+	<p class="text-danger">O Produto <?= $produto->nome ?> não foi cadastrado!!! <?= $msg ?></p> 
 
 <?php }	?>
 

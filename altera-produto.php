@@ -1,8 +1,6 @@
 <?php require_once("cabecalho.php");
-  require_once("banco-produtos.php");
+  require_once("produto-dao.php");
   require_once("logica-usuario.php");
-  require_once("class/produto.php");
-  require_once("class/categoria.php");
 
   verificaUsuario();
 
@@ -20,11 +18,13 @@
 		$usado = "false";
 	}
   $produto->usado = $usado;
+
+  $produtoDAO = new ProdutoDAO($conexao);
 ?>
 
-	<?php	if (alteraProduto($conexao, $produto)) {	?>
+	<?php	if ($produtoDAO->alteraProduto($produto)) {	?>
 
-		<p class="text-success">O Produto <?= $produto->nome ?>, <?= $produto->preco ?> foi alterado com sucesso!!!</p>
+		<p class="text-success">O Produto <?= $produto->nome ?>, <?= $produto->getPreco() ?> foi alterado com sucesso!!!</p>
 
 	<?php } else { ?>
 
