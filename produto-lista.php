@@ -12,7 +12,7 @@
 			<th>Preço com desconto(<?=$desconto?>%)</th>
 			<th>Descrição</th>
 			<th>Categoria</th>
-			<th>Usado</th>												
+			<th>Usado</th>
 		</tr>
 		<?php
 			$produtos = listaProdutos($conexao);
@@ -21,7 +21,7 @@
 
 		<tr>
 			<td><?= $produto->nome ?></td>
-			<td><?= $produto->preco ?></td>
+			<td><?= number_format($produto->preco, 2) ?></td>
 			<td><?= number_format($produto->valorComDesconto($desconto), 2) ?></td>
 			<td><?= substr($produto->descricao, 0, 20) ?></td>
 			<td><?= $produto->categoria->nome ?></td>
