@@ -1,7 +1,9 @@
-<?php require_once("cabecalho.php");
+<?php
+	require_once("cabecalho.php");
 	require_once("categoria-dao.php");
 
 	mostraAlerta("success");
+
 ?>
 
 <table class="table table-striped table-bordered">
